@@ -1,0 +1,131 @@
+// console.log(pomodoroVal.value)
+let pomodoroMinCount = parseInt(pomodoroVal.value);
+let shortBreakMinCount = 5;
+let longBreakMinCount= 15;
+
+// console.log(pomodoroMinCount)
+
+let set;
+let count = 59;
+let paused = true;
+let minCount = 25;
+timer.textContent = `${pomodoroMinCount}:00`;
+
+const appendZero = (value) => {
+    value = value < 10 ? `0${value}`: value;
+    return value;
+}
+
+
+
+const removeFocus = () => {
+    buttons.forEach((btn) => {
+        btn.classList.remove("btn-focus");
+    });
+};
+
+pomodoro.addEventListener("click", () => {
+    removeFocus()
+    pomodoro.classList.add("btn-focus");
+    pauseTime();
+    minCount = pomodoroMinCount;
+    count = 59;
+    timer.textContent = `${minCount}:00`;
+
+    if (minCount === 0 && count === 0){
+        let i = 1;
+        document.getElementById("round-count") = `#${i + 1}`;
+    }
+});
+
+shortBreak.addEventListener("click", () => {
+    
+    removeFocus();
+    shortBreak.classList.add("btn-focus");
+    console.log(shortBreak)
+    pauseTime();
+    minCount = shortBreakMinCount;
+    count = 59;
+    timer.textContent = `${appendZero(minCount)}:00`;
+
+   
+});
+
+longBreak.addEventListener("click", () => {
+    active = "long";
+    removeFocus();
+    longBreak.classList.add("btn-focus");
+    pauseTimer();
+    minCount = longBreakMinCount;
+    count = 59;
+    timer.textContent = `${minCount}:00`;
+});
+
+pauseBtn.addEventListener("click", (pauseTime) => {
+    paused = true;
+    clearInterval(set);
+    startBtn.classList.add("show");
+    pauseBtn.classList.add("hide");
+    pauseBtn.classList.remove("show");
+    
+});
+
+startBtn.addEventListener("click", () => {
+    pauseBtn.classList.add("show");
+    startBtn.classList.add("hide");
+    startBtn.classList.remove("show");
+    if (paused) {
+        paused = false;
+        timer.textContent = `${appendZero(minCount)}:${appendZero(count)}`;
+        set = setInterval(() => {
+            count--;
+            timer.textContent = `${appendZero(minCount)}:${appendZero(count)}`;
+            if (count == 0){
+                if(minCount != 0) {
+                    minCount --;
+                    count = 59;
+                } else {
+                    clearInterval(set);
+                }
+            }
+        }, 1000);
+    }
+});
+
+signIn.addEventListener("click", () => {
+    document.getElementById("show-sign-in-options").classList.remove("hide")
+});
+setting.addEventListener("click", () => {
+    document.getElementById("show-setting-options").classList.remove("hide");
+});
+close.addEventListener("click", () => {
+    document.getElementById("show-setting-options").classList.add("hide");
+});
+
+
+
+function setPomodoroCount(value){
+    pomodoroMinCount = parseInt(value)
+}
+
+okayBtn.addEventListener("click", () => {
+    //  pomodoroVal.value 
+    //  shortBreakVal.value;
+    //  longBreakVal.value;
+    // setPomodoroCount(pomodoroVal)
+    // console.log(typeof pomodoroVal.value)
+    console.log('click', pomodoroVal.value)
+    pomodoroMinCount = parseInt(pomodoroVal.value)
+    shortBreakMinCount = parseInt(shortBreakVal.value)
+    longBreakMinCount = parseInt(longBreakVal.value)
+    
+});
+
+console.log("AFTER EVENT LISTENER", pomodoroMinCount)
+
+addTask.addEventListener("click", () => {
+
+    addTask.classList.add("hide")
+    document.getElementById("show-popup-add-task").classList.remove("another-hide");
+   
+})

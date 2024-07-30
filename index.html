@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+</head>
+<body>
+    <main id="myMain">
+            <div class="navbar">
+                <div class="logo">
+                    <i class="fa-regular fa-clock"> My pomodoro</i>
+                </div>
+                <div class="options">
+                    <div></div>   
+                    <button id="report" class="navbar-buttons btn"><i class="fa-solid fa-chart-simple btn"></i> Report</button>
+                    <button id="setting" class="navbar-buttons btn"><i class="fa-solid fa-gear btn"></i> Setting</button>
+                    <div id="show-setting-options" class="setting-popup hide">
+                        <div class="setting-popup-content">
+                            <div class="heading">
+                                <p>SETTING</p>
+                                <button id="close-setting-button" class="close-button"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                            <div>
+
+                            </div>
+                            <div class="set-time">
+                                <p>Timer(minutes)</p>
+                                <div class="setting-buttons">
+                                    
+                                <label for="pomodoro-time">Pomodoro <br>
+                                    <input id="pomodoro-time" class="setting-time" type="number" value="25" min="1"/>
+                                </label>
+                                <label for="short-break">Short break <br>
+                                    <input id="short-break-setter" class="setting-time" type="number" value="5"  min="1"/>
+                                </label>
+                                <label for="long-break">Long break <br>
+                                    <input id="long-break-setter" class="setting-time" type="number"value="15" min="1"/>
+                                </label>
+                                </div>
+                                <button id="okay" class="okay" >OK</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button id="sign-in" class="navbar-buttons btn"><i class="fa-solid fa-right-to-bracket btn"></i><a> Sign in</a></button>
+                    <div id="show-sign-in-options" class="sign-in-popup hide">
+                        <div class="sign-in-popup-content">
+                            <h1>Sign in</h1>
+                            <img class="profile-image" src="profile.png" alt="profile icon" />
+                            <form>
+                                <label for="email"> Email <br>
+                                    <input id="email" class="inputs" type="email" placeholder=" Enter you email"/>
+                                </label for="password">
+                                <label> Password <br>
+                                    <input id="password" class="inputs" type="password" placeholder=" Enter you password"/>
+                                </label>
+                                <button class="sign-in-button" id="sign-in-button" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="dropdown1">
+                        <button id="others" class="more-button btn"><i class="fa-solid fa-caret-down btn"></i></button>
+                        <div id="myDropdown" class="dropdown-content hide">
+                            <a><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                            <a><i class="fa-solid fa-money-bill"></i> Premium</a>
+                            <a><i class="fa-solid fa-keyboard"></i> Shortcut</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+                <div id="clock-container" class="clock-container">
+                    <div id="modes" class="modes">
+                        <button id="pomodoro" class="pomodoro-btn btn-focus btnFoc">Pomodoro</button>
+                        <button id="short-break" class="short-break-btn  btnFoc">Short Break</button>
+                        <button id="long-break" class="long-break-btn  btnFoc">Long Break</button>
+    
+                    </div>
+                    <div class="timer">
+                        <span id="time" class=" timer-background"></span>
+                    </div>
+                    <div class="start">
+                        <button id="start" class="show">START</button>
+                        <button id="pause" class="hide">PAUSE</button>
+                    </div>
+                </div>
+                <div class="notice">
+                    <span id="round-count">#1</span>
+                    <span>Time to focus!</span>
+                </div>
+                <div class="task-info">
+                    <span>Tasks</span>
+                    <div class="dropdown2">
+                        <button id="task-management" class="btn"><i class="fa-solid fa-caret-down btn"></i></button>
+                        <div id="myDropdown2" class="dropdown-content2 hide">
+                            <a><i class="fa-regular fa-trash-can ok"></i> Clear finished tasks</a>
+                            <a><i class="fa-regular fa-copy ok"></i> Use Template</a>
+                            <a><i class="fa-solid fa-box-archive ok"></i> Hide task</a>
+                            <a><i class="fa-regular fa-trash-can ok"></i> Clear all tasks</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="add-task">
+                    <button id="add-task"><i class="fa-solid fa-plus"></i> Add task</button>
+                </div>
+                <form>
+                    <div id="show-popup-add-task" class="add-task-popup another-hide">
+                        <div class="add-task-popup-content">
+                            <input id="add-task-input" class="add-task-input" placeholder="What are you working on?"/>
+                            <p>  est Pomodoros</p>
+                            <div>
+                                <input class="add-task-number-input" type="number" />
+                                <button class="btss"><i class="fa-solid fa-caret-up"></i></button>
+                                <button class="btss"><i class="fa-solid fa-caret-down"></i></button>
+                            </div>
+                            <div class="add-notes-projects">
+                                <a href="#"><i class="fa-solid fa-plus"></i> Add note</a>
+                                <a href="#"><i class="fa-solid fa-plus"></i> Add project</a>
+                            </div>
+                        </div>
+                        <div class="cancel-save">
+                            <button id="cancelBtn" class="cancel" type="submit">Cancel</button>
+                            <button id="saveBtn" class="save" type="submit">Save</button>
+    
+                        </div>
+    
+                    </div>
+                </form>
+                
+        
+        
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
