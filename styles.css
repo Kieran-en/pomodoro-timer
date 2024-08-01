@@ -558,7 +558,7 @@ form {
   .navbar {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
   }
 
   .task-info {
@@ -577,7 +577,7 @@ form {
     border-radius: 10px;
     border-color: #af9595;
     margin-top: 25px;
-    width: 190px;
+    width: 197px;
     height: 50px;
     font-size: 18px;
     cursor: pointer;
@@ -589,6 +589,7 @@ form {
   
   .cancel {
     width: 50px;
+    margin-left: 200px;
   }
 
   .save {
