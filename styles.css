@@ -598,7 +598,11 @@ form {
   
   .cancel {
     margin-left: 200px;
+    height: 35px;
   }
 
+  .save {
+    height: 35px;
+  }
   
 }
