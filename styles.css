@@ -6,7 +6,9 @@
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 }
-
+body{
+  background-color: #ba4949;
+}
 main {
   background-color: #ba4949;
   display: flex;
@@ -15,7 +17,11 @@ main {
   flex-direction: column;
   padding: 10px 10px;
   color: white;
-  
+  position: relative;
+}
+
+main button:active{
+  transform: scale(0.9);
 }
 
 .options {
@@ -199,13 +205,12 @@ form {
   display: flex;
   flex-direction: column;
   position: relative;
-  /* gap: 5px; */
 }
 
 .dropdown2 {
   display: flex;
   flex-direction: column;
-  /* gap: 5px; */
+  position: relative;
 }
 
 .dropdown-content {
@@ -229,10 +234,10 @@ form {
   color: black;
   gap: 10px;
   width: 200px;
-  height: 130px;
+  height: 165px;
   border-radius: 3px;
   position: absolute;
-  left: 700px;
+  right: 0px;
   margin-top: 35px;
 }
 
@@ -516,4 +521,34 @@ form {
 
 .dropdown-content2 i {
   background-color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .task-info {
+    gap: 200px;
+  }
+
+  .clock-container {
+    margin-top: 45px;
+  }
+
+  .add-task button {
+    background-color: #aa4242;
+    color: #e2bcbc;
+    border: dashed 2px;
+    border-radius: 10px;
+    border-color: #af9595;
+    margin-top: 25px;
+    width: 350px;
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+  }
 }

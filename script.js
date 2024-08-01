@@ -4,6 +4,7 @@ const report = document.getElementById("report");
 const setting = document.getElementById("setting");
 const close = document.getElementById("close-setting-button");
 const signIn = document.getElementById("sign-in");
+const submit = document.getElementById("sign-in-button");
 const others = document.getElementById("others");
 const pomodoro = document.getElementById("pomodoro");
 const shortBreak = document.getElementById("short-break");
@@ -15,6 +16,8 @@ const pauseBtn = document.getElementById("pause");
 const roundCount = document.getElementById("round-count");
 const taskManagement = document.getElementById("task-management");
 const addTask = document.getElementById("add-task");
+const cancelBtn = document.getElementById("cancel-btn");
+const saveBtn = document.getElementById("save-btn")
 const timer = document.getElementById("time");
 const okayBtn = document.getElementById("okay");
 const pomodoroVal = document.getElementById("pomodoro-time");
@@ -44,6 +47,7 @@ const appendZero = (value) => {
 // setting modifications to be undergone while selecting pomodoro option
 const changePomodoro = () => {
   document.getElementById("myMain").classList.add("pomodoro-color");
+  document.querySelector(".myMain").classList.add("pomodoro-color");
   document
     .getElementById("clock-container")
     .classList.add("pomodoro-container");
@@ -52,10 +56,12 @@ const changePomodoro = () => {
   addTask.style.backgroundColor = "#ba4949";
   addTask.style.transition = "all 0.5s ease-in";
   document.getElementById("myMain").classList.remove("short-color");
+  document.querySelector(".myMain").classList.remove("short-color");
   document
     .getElementById("clock-container")
     .classList.remove("short-container");
   document.getElementById("myMain").classList.remove("long-color");
+  document.querySelector(".myMain").classList.remove("long-color");
   document.getElementById("clock-container").classList.remove("long-container");
   timer.classList.remove("short-container");
   timer.classList.remove("long-container");
@@ -78,6 +84,7 @@ const changePomodoro = () => {
 // setting modifications to be undergone while selecting shortBreak option
 const changeShort = () => {
   document.getElementById("myMain").classList.add("short-color");
+  document.querySelector(".myMain").classList.add("short-color");
   document.getElementById("clock-container").classList.add("short-container");
   timer.classList.add("short-container");
   document.getElementById("short-break").classList.add("short-break-btn-focus");
@@ -85,6 +92,7 @@ const changeShort = () => {
   document.getElementById("pomodoro").classList.add("short-other-color");
   document.getElementById("long-break").classList.add("short-other-color");
   document.getElementById("myMain").classList.remove("long-color");
+  document.querySelector(".myMain").classList.remove("long-color");
   document.getElementById("clock-container").classList.remove("long-container");
   timer.classList.remove("long-container");
   document
@@ -105,6 +113,7 @@ const changeShort = () => {
 // setting modifications to be undergone while selecting longBreak option
 const changeLong = () => {
   document.getElementById("myMain").classList.add("long-color");
+  document.querySelector(".myMain").classList.add("long-color");
   document.getElementById("clock-container").classList.add("long-container");
   timer.classList.add("long-container");
   document.getElementById("long-break").classList.add("long-break-btn-focus");
@@ -112,6 +121,7 @@ const changeLong = () => {
   document.getElementById("pomodoro").classList.add("long-other-color");
   document.getElementById("short-break").classList.add("long-other-color");
   document.getElementById("myMain").classList.remove("short-color");
+  document.querySelector(".myMain").classList.remove("short-color");
   document
     .getElementById("clock-container")
     .classList.remove("short-container");
@@ -224,6 +234,12 @@ startBtn.addEventListener("click", () => {
 
 signIn.addEventListener("click", () => {
   document.getElementById("show-sign-in-options").classList.remove("hide");
+  others.classList.add("hide");
+  taskManagement.classList.add("hide");
+
+});
+submit.addEventListener("click", () =>{
+  document.getElementById("show-sign-in-options").classList.add("hide");
 });
 setting.addEventListener("click", () => {
   document.getElementById("show-setting-options").classList.remove("hide");
@@ -236,8 +252,10 @@ others.addEventListener("click", () => {
 
   if (isVisible) {
     document.getElementById("myDropdown").classList.remove("hide");
+    document.getElementById("myDropdown2").classList.add("hide");
   } else {
     document.getElementById("myDropdown").classList.add("hide");
+    
   }
 });
 
@@ -246,22 +264,16 @@ taskManagement.addEventListener("click", () => {
 
   if (isVisible) {
     document.getElementById("myDropdown2").classList.remove("hide");
+    document.getElementById("myDropdown").classList.add("hide");
   } else {
     document.getElementById("myDropdown2").classList.add("hide");
+    
   }
 });
 
 // document.getElementById("myDropdown").classList.remove("hide")
 
 okayBtn.addEventListener("click", () => {
-  // Now set the minute counts to the updated values
-  // pMinCount = pomodoroVal.value;
-  // sMinCount = shortBreakVal.value;
-  // lMinCount = longBreakVal.value;
-
-  // localStorage.setItem("pMinCount", pomodoroVal.value);
-  // localStorage.setItem("sMinCount", shortBreakVal.value);
-  // localStorage.setItem("lMinCount", longBreakVal.value);
 
   setValues();
 
@@ -284,19 +296,17 @@ addTask.addEventListener("click", () => {
     .classList.remove("another-hide");
 });
 
-// document.getElementById("okay").addEventListener("click", () => {
-//   TimerSettings.pMinCount = parseInt(
-//     document.getElementById("pomodoro-time").value,
-//     10
-//   );
-//   TimerSettings.sMinCount = parseInt(
-//     document.getElementById("short-break-setter").value,
-//     10
-//   );
-//   TimerSettings.lMinCount = parseInt(
-//     document.getElementById("long-break-setter").value,
-//     10
-//   );
+cancelBtn.addEventListener("click", () => {
+  addTask.classList.remove("hide");
+  document
+  .getElementById("show-popup-add-task")
+  .classList.add("another-hide");
+});
 
-//   console.log("Updated Timer Settings:", TimerSettings);
-// });
+saveBtn.addEventListener("click", () => {
+  addTask.classList.remove("hide");
+  document
+  .getElementById("show-popup-add-task")
+  .classList.add("another-hide");
+});
+
