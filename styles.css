@@ -409,6 +409,7 @@ form {
   height: 200px;
   width: 400px;
   margin-top: 30px;
+  margin-bottom: 50px;
 }
 .another-hide {
   display: none;
@@ -446,20 +447,22 @@ form {
   height: 60px;
   background-color: #cccccc;
   justify-content: center;
+  margin-bottom: 50px;
 }
 .cancel {
   background-color: #cccccc;
   width: 60px;
-  height: 40px;
+  height: 35px;
   border: none;
   border-radius: 5px;
   margin-left: 250px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 .save {
   background-color: #222020;
   width: 60px;
-  height: 40px;
+  height: 35px;
   border: none;
   border-radius: 5px;
   margin-left: 15px;
@@ -525,11 +528,11 @@ form {
 }
 
 @media only screen and (max-width: 768px) {
-  /* .navbar {
+  .navbar {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  } */
+  }
 
   .task-info {
     gap: 200px;
@@ -598,11 +601,6 @@ form {
   
   .cancel {
     margin-left: 200px;
-    height: 35px;
-  }
-
-  .save {
-    height: 35px;
   }
   
 }
