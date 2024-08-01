@@ -294,6 +294,8 @@ addTask.addEventListener("click", () => {
   document
     .getElementById("show-popup-add-task")
     .classList.remove("another-hide");
+    document.getElementById("myDropdown").classList.add("hide");
+    document.getElementById("myDropdown2").classList.add("hide");
 });
 
 cancelBtn.addEventListener("click", () => {
