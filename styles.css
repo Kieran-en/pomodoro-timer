@@ -180,6 +180,7 @@ main button:active{
   height: 30px;
   position: center;
   background-color: #c15c5c;
+  color: white;
   border: none;
   border-radius: 5px;
   display: block;
