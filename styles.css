@@ -562,6 +562,10 @@ form {
     gap: 40px;
   }
 
+  .setting-popup {
+    width: 200px;
+  }
+
   .task-info {
     gap: 200px;
   }
