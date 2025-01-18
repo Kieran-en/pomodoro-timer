@@ -35,8 +35,9 @@ let isVisible = false;
 let set;
 let count = 59;
 let paused = true;
-let minCount = 24;
-timer.textContent = `${minCount + 1}:00`;
+let minCount = localStorage.getItem("pMinCount");
+timer.textContent = `${localStorage.getItem("pMinCount")}:00`;
+// timer.textContent = `${minCount + 1}:00`;
 
 // setting a zero before single digit numbers on timer
 const appendZero = (value) => {
@@ -77,8 +78,11 @@ const changePomodoro = () => {
   document.getElementById("long-break").classList.remove("short-other-color");
   document.getElementById("short-break").classList.remove("long-other-color");
   document.getElementById("modes").classList.remove("long-other-color");
+  document.getElementById("start-pause-btn").style.backgroundColor = '#ba4949';
   startBtn.style.color = "#ba4949";
   pauseBtn.style.color = "#ba4949";
+
+  timer.textContent = `${localStorage.getItem("pMinCount")}:00`;
 };
 
 // setting modifications to be undergone while selecting shortBreak option
@@ -104,10 +108,13 @@ const changeShort = () => {
   document.getElementById("short-break").classList.remove("long-other-color");
   document.getElementById("modes").classList.remove("pomodoro-other-color");
   document.getElementById("pomodoro").classList.remove("pomodoro-focus");
+  document.getElementById("start-pause-btn").style.backgroundColor = '#38858a';
   startBtn.style.color = "#38858a";
   pauseBtn.style.color = "#38858a";
   addTask.style.backgroundColor = "#38858a";
   addTask.style.transition = "all 0.5s ease-in";
+
+  timer.textContent = `${localStorage.getItem("sMinCount")}:00`;
 };
 
 // setting modifications to be undergone while selecting longBreak option
@@ -134,10 +141,13 @@ const changeLong = () => {
   document.getElementById("long-break").classList.remove("short-other-color");
   document.getElementById("modes").classList.remove("pomodoro-other-color");
   document.getElementById("pomodoro").classList.remove("pomodoro-focus");
+  document.getElementById("start-pause-btn").style.backgroundColor = '#397097';
   startBtn.style.color = "#397097";
   pauseBtn.style.color = "#397097";
   addTask.style.backgroundColor = "#397097";
   addTask.style.transition = "all 0.5s ease-in";
+
+  timer.textContent = `${localStorage.getItem("sMinCount")}:00`;
 };
 
 function pauseTimer(timer) {
@@ -165,6 +175,7 @@ pomodoro.addEventListener("click", () => {
   minCount = localStorage.getItem("pMinCount");
   count = 59;
   timer.textContent = `${minCount}:00`;
+  pauseBtn.click();
 });
 
 shortBreak.addEventListener("click", () => {
@@ -182,6 +193,7 @@ shortBreak.addEventListener("click", () => {
   minCount = localStorage.getItem("sMinCount");
   count = 59;
   timer.textContent = `${minCount}:00`;
+  pauseBtn.click();
 });
 
 longBreak.addEventListener("click", () => {
@@ -197,6 +209,7 @@ longBreak.addEventListener("click", () => {
   minCount = localStorage.getItem("lMinCount");
   count = 59;
   timer.textContent = `${minCount}:00`;
+  pauseBtn.click();
 });
 
 pauseBtn.addEventListener("click", (pauseTime) => {
@@ -216,10 +229,10 @@ startBtn.addEventListener("click", () => {
   // timer count down
   if (paused) {
     paused = false;
-    timer.textContent = `${appendZero(minCount)}:${appendZero(count)}`;
+    timer.textContent = `${appendZero(minCount) - 1}:${appendZero(count)}`;
     set = setInterval(() => {
       count--;
-      timer.textContent = `${appendZero(minCount)}:${appendZero(count)}`;
+      timer.textContent = `${appendZero(minCount) - 1}:${appendZero(count)}`;
       if (count == 0) {
         if (minCount != 0) {
           minCount--;
@@ -280,6 +293,7 @@ okayBtn.addEventListener("click", () => {
   console.log("Updated Values:", pMinCount, sMinCount, lMinCount);
   console.log("clickeddddd");
   document.getElementById("show-setting-options").classList.add("hide");
+  location.reload();
 });
 
 function setValues() {
